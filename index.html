@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة أكاديمية أنوارالذات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #firstPage {
+            background-color: #007bff; /* خلفية زرقاء */
+            color: #ffffff; /* كتابة بيضاء */
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ffffff; /* عنوان بيضاء */
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* يخفي الصفحة الثانية ابتداءً */
+        #secondPage {
+            display: none;
+        }
+
+        /* أنماط CSS الخاصة بالصفحة الثانية */
+           /* Basic Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0084ff;
+            color: #ffffff;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .info-section {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        .contact-info a {
+            color: #0056b3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #003366;
+        }
+        .feature {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .feature img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+        .feature-content {
+            flex: 1;
+        }
+        .testimonial {
+            margin-top: 30px;
+            border-left: 4px solid #0056b3;
+            padding-left: 20px;
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .subscription-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .subscription-form input[type="email"] {
+            width: 250px;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .subscription-form .btn {
+            padding: 10px 20px;
+        }
+        .faq-section {
+            margin-top: 30px;
+        }
+        .faq-section h2 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .faq-section .faq {
+            margin-bottom: 20px;
+        }
+        .faq-section h3 {
+            margin-bottom: 10px;
+        }
+        .pricing-section {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .pricing-plan {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+            margin: 0 10px;
+        }
+        .pricing-plan h3 {
+            margin-bottom: 20px;
+        }
+        .pricing-plan ul {
+            margin-bottom: 20px;
+        }
+        .pricing-plan li {
+            margin-bottom: 10px;
+        }
+        .pricing-plan .btn {
+            margin-top: 20px;
+        }
+        .comparison-table {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .contact-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .contact-form .btn {
+            padding: 12px 24px;
+        }
+        .nav-menu {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-menu a {
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* تغيير لون النص إلى الأصفر */
+.nav-menu a {
+    color: #ffff00; /* اللون الأصفر */
+}
+
+/* تغيير لون النص عند التحويم بالماوس */
+.nav-menu a:hover {
+    color: #ccc; /* اللون الرمادي */
+    </style>
+</head>
+<body>
+    <div id="firstPage">
+        <h2>أهـــلا بك في متصفح الوكيل المعتمد ل منصة أكاديمية أنوارالذات</h2>
+        <p>من فضلك، أدخل النطاق مع الدومين أو الاستضافة التي تم بيعها لك:</p>
+        <input type="text" id="domainInput" placeholder="Enter domain or IP address">
+        <br>
+        <div style="background-color: #fff; color: red; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+            ip host channel:197.287.684.3
+        </div>
+        <button onclick="verifyDomain()">تحقق</button>
+    </div>
+
+    <div id="secondPage">
+       <header>
+        <h1>منصة أكاديمية أنوارالذات</h1>
+        <p>منصة تتحدث عن علوم الروح والارتقاء النفسى والروحى بشكل شامل وتفصيلى</p>
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#services">Our Services</a>
+            <a href="#content">Content</a>
+            <a href="#order">Order</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="home">
+            <h2>Welcome!</h2>
+            <p>اهلا وسهلا بحضراتكم فى المنصمة الموثقة والمعتمدة لاكاديمية أنوار الذات للارتقاء الروحى والنفسى</p>
+            <p>معنا سوف تتعلم وتحصل على شهادة موثقة من الطبيب أحمد محمد الوراقى المدرب المعتمد بالاكاديمية</p>
+        </section>
+        <section id="services" class="info-section">
+            <h2>Our Services</h2>
+            <p>نحن نقدم لك العديد من الخدمات المتنوعة من العلوم النظرية الروحية والتطبيق العملى بكل محاضرة</p>
+            <ul>
+                <li>تتدرب على مهارات الحس الروح والتواصل الجسدى</li>
+                <li>تتدرب على مهارات التخاطر والتفريغ الذهنى</li>
+                <li>تتدرب على مهارات تحرير الروح من الاثير الجسدى</li>
+                <li>تغيير الحالة المزاجية بحسب طبيعة الامور من حولك والتاثير على العامل العقلى</li>
+                <li>نحن معك فى كل الاوقات داخل هذه الاكاديمية</li>
+            </ul>
+        </section>
+        <section id="content">
+            <h2>Content</h2>
+            <p>ماذا عن المحتوى الذى نحن نقدمة</p>
+            <ul>
+                <li>محتوى يتوافق مع علم الكتاب والقران</li>
+                <li>أستجابة الطبيعة والحس البصرى</li>
+                <li>الاستجابة القلبية والتحريك الوضعى</li>
+                <li>عوامل الطبيعة فى الارتقاء والنمو الروحى</li>
+            </ul>
+        </section>
+        <section id="order" class="pricing-section">
+            <h2>Order Now</h2>
+            <p>Choose the plan that suits your needs and get started today!</p>
+            <div class="pricing-plan">
+                <h3>الخدمة المجانية</h3>
+                <ul>
+                    <li>لن تحصل على شهادة معتمدة</li>
+                    <li>التدريب العملى سيكون قليل</li>
+                    <li>سوف يتم الشرح بشكل ملخص دون الخوض فى التفاصيل</li>
+                    <li>لن تصبح قادر على الاستفتاء المستمر وعرض الاسئلة</li>
+                    <li>سوف يكون التفعيل النورانى لبعض الايات والسور فقط</li>
+                    <li>علاجات الاستشفاء سوف تكون لنقاط محددة من الجسد</li>
+                    <li>محتوى كل دورة لن يكون معك دائما بعد الشرح</li>
+                </ul>
+                <p><strong>Price:</strong> Free</p>
+                <button class="btn">Get Started</button>
+            </div>
+            <div class="pricing-plan">
+                <h3>المحتوى المدفوع</h3>
+                <ul>
+                    <li>تحصل على شهادة موثقة ومعتمدة</li>
+                    <li>لك الحق ان تسال معلمك فى اى وقت</li>
+                    <li>الشرح يشمل كل الذبذبات الجسدية والطاقات النورانية</li>
+                    <li>سوف نساعدك فى تفعيل شاكراتك المختلفة</li>
+                    <li>ستكون قادرا على النضج فكريا وروحيا</li>
+                    <li>دورتنا تشمل كل ما يشمل جلسات الاستشفاء الروحية</li>
+                    <li>أستجابة الطبيعة وتفاعل الهالات وكذلك تفعيل كافة نورانياتك الاحاطية</li>
+                </ul>
+                <p><strong>Price:</strong> 100 دولار</p>
+                <button class="btn">100 دولار</button>
+            </div>
+        </section>
+       <style>
+    /* Basic styling for chat interface */
+    .chat-container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 300px;
+        margin: auto;
+    }
+    .chat-messages {
+        height: 200px;
+        overflow-y: scroll;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    .user-message, .bot-message {
+        max-width: 70%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+    .user-message {
+        background-color: #0084ff;
+        color: #fff;
+        align-self: flex-end;
+    }
+    .bot-message {
+        background-color: #f2f2f2;
+        color: #333;
+        align-self: flex-start;
+    }
+    .input-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .user-input {
+        flex: 1;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .send-button {
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #0084ff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    .send-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<section id="contact" class="contact-form">
+    <h2>Contact Us</h2>
+    <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+            <!-- Chat messages will be displayed here -->
+            <div class="bot-message">اهلا وسهلا بحضرتك فى موقعنا الذى عبارة عن اكاديمية ومنصة لتعليم الانوار والعلوم الروحية والنفسية الذاتية</div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="userInput" class="user-input" placeholder="اكتب رسالتك...">
+            <button onclick="sendMessage()" class="send-button">إرسال</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function sendMessage() {
+        var userInput = document.getElementById("userInput").value.trim();
+        var chatMessages = document.getElementById("chatMessages");
+
+        // Display user message
+        var userMessageElement = document.createElement("div");
+        userMessageElement.classList.add("user-message");
+        userMessageElement.textContent = userInput;
+        chatMessages.appendChild(userMessageElement);
+
+        // Clear input field
+        document.getElementById("userInput").value = "";
+
+        // Process user input and display bot response
+        var botResponse = processUserInput(userInput);
+        var botMessageElement = document.createElement("div");
+        botMessageElement.classList.add("bot-message");
+        botMessageElement.textContent = botResponse;
+        chatMessages.appendChild(botMessageElement);
+
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function processUserInput(input) {
+        // Process user input and return appropriate response
+        var response = "";
+        switch (input) {
+            case "الاسعار":
+                response = "100 دولار يا فندم للدورة";
+                break;
+            case "الاعتماد":
+                response = "شهادة أعتماد دولية مختومة بختم دولى";
+                break;
+            case "طرق الدفع":
+                response = "تواصل معى عبر الواتس 00962792849205";
+                break;
+            default:
+                response = "يرجى اختيار استفسارك من بين الاسعار، الاعتماد، أو طرق الدفع.يعنى عايز تستفسر عن الاعتماد اكتب الاعتماد ودوس ارسال وهكذا";
+        }
+        return response;
+    }
+</script>
+
+
+        </section>
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>For more information, contact us at:</p>
+            <p><a href="mailto:alwraqyahmd057@gmail.com">alwraqyahmd057@gmail.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('clickMe').addEventListener('click', function() {
+            const infoSection = document.getElementById('infoSection');
+            infoSection.innerHTML += '<p>Hello from Bomnikar-ME! This is a dynamically generated message.</p>';
+        });
+    </script>
+   <footer>
+        <p>حقوق الطبع والنشر &copy; 2024 - أكاديمية الانوار الذاتية</p>
+    </footer>
+ <script>
+        function verifyDomain() {
+            var domainInput = document.getElementById('domainInput').value;
+            if (domainInput === 'www.alwaraky.com') {
+                // يظهر الصفحة الثانية
+                document.getElementById('secondPage').style.display = 'block';
+                // يخفي الصفحة الأولى
+                document.getElementById('firstPage').style.display = 'none';
+            } else {
+                alert('الرجاء إدخال النطاق الصحيح.');
+            }
+        }
+    </script>
+</body>
+</html>
